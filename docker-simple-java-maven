@@ -1,16 +1,25 @@
 #######https://github.com/iPraBhu/ADevGuide.git######
 mkdir Demo
 cd Demo
-git clone https://github.com/iPraBhu/ADevGuide.git
+sudo apt install git -y
+sudo git clone https://github.com/iPraBhu/ADevGuide.git
 cd ADevGuide/SimpleJavaProject
 mvn package
-======
+######################################################
+vi Dockerfile
+---------------
 FROM openjdk:8-jdk-alpine
 WORKDIR /apps/data
 ARG JAR_FILE=target/*.jar
 COPY ${JAR_FILE} ./app.jar
 CMD ["java", "-jar", "app.jar"]
-======
+
+######build the above docker image##################
+
 docker build -it demo/docker-java-maven .
+
+##########run docker container#######################
+
 docker run -it demo/docker-java-maven --name=java-app
-========
+
+
