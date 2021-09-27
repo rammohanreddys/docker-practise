@@ -4,6 +4,7 @@ cd Demo
 sudo apt install git -y
 sudo git clone https://github.com/iPraBhu/ADevGuide.git
 cd ADevGuide/SimpleJavaProject
+sudo apt install maven -y
 mvn package
 ######################################################
 vi Dockerfile
