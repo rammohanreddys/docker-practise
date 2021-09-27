@@ -1,12 +1,12 @@
 ###############Jfrog installation on ubuntu:##################
 sudo apt update
-wget -qO - https://api.bintray.com/orgs/jfrog/keys/gpg/public.key | sudo apt-key add -
-echo "deb https://jfrog.bintray.com/artifactory-debs bionic main" | sudo tee /etc/apt/sources.list.d/jfrog.list
+sudo wget -qO - https://api.bintray.com/orgs/jfrog/keys/gpg/public.key | sudo apt-key add -
+sudo echo "deb https://jfrog.bintray.com/artifactory-debs bionic main" | sudo tee /etc/apt/sources.list.d/jfrog.list
 sudo apt update
 sudo apt install jfrog-artifactory-oss
 sudo systemctl start artifactory.service
 sudo systemctl enable artifactory.service
-systemctl status artifactory.service
+sudo systemctl status artifactory.service
 
 ############Access the Jfrog web interface:#############
 http://SERVERIP_OR_DOMAIN:8081/artifactory
