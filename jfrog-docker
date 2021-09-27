@@ -15,4 +15,16 @@ Username: admin
 Password: password
 #####refer this video###############################
 https://www.youtube.com/results?search_query=sample+maven+java+dockerfile
+####################################################
+
+####before login to artifactory from docker-cli###########
+vi ~/.docker/config.json
+add artifactory configuration
+###########################################################
+
+docker login artifactory-repo
+docker pull centos:latest 
+docker tag centos:latest artifactory-repo/centos:latest
+docker push artifactory-repo/centos:latest
+
 
