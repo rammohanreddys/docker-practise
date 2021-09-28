@@ -1,0 +1,31 @@
+#######https://github.com/iPraBhu/ADevGuide.git######
+#######https://github.com/jabedhasan21/java-hello-world-with-maven#######
+mkdir Demo
+cd Demo
+sudo apt install git -y
+sudo git clone https://github.com/spring-projects/spring-petclinic.git
+cd spring-petclinic
+sudo apt install maven -y
+mvn package
+######################################################
+vi Dockerfile
+---------------
+FROM openjdk:8-jdk-alpine
+WORKDIR /apps/data
+ARG JAR_FILE=target/spring-petclinic-2.5.0-SNAPSHOT.jar
+COPY ${JAR_FILE} .
+EXPOSE 8080
+ENTRYPOINT ["sh", "-c"]
+CMD ["java -jar spring-petclinic-2.5.0-SNAPSHOT.jar"]
+
+######build the above docker image##################
+
+docker build -t demo/java-spring .
+
+##########run docker container#######################
+
+docker run -it -p 8080:8080 demo/java-spring
+
+#########access the spring boot application from below###########
+
+https://ip_address:8080
