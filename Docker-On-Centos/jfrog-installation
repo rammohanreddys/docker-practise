@@ -1,0 +1,19 @@
+#/bin/bash
+#
+# Install jfrog on CentOS 8
+# Blog: https://sharadchhetri.com
+
+# Disable the SELINUX on CentOS 8
+# set temporary permissive selinux mode. reboot not require
+sudo setenforce 0
+# In next reboot,the below line will help to set disable selinux permanently.
+sudo sed -i s/^SELINUX=.*$/SELINUX=disabled/ /etc/selinux/config
+
+# jfrog oss 7.x require Java 11, installing wget and openjdk
+sudo yum install -y wget java-11-openjdk*
+
+# download jfrog repo and directly keep in /etc/yum.repos.d dir
+sudo wget https://bintray.com/jfrog/artifactory-rpms/rpm -O /etc/yum.repos.d/bintray-jfrog-artifactory-oss-rpms.repo
+
+# install jfrog-artifactory-oss (open source)
+sudo yum install -y jfrog-artifactory-oss
